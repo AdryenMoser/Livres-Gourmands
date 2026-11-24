@@ -52,6 +52,16 @@ Ce dépôt implémente l’étape 02 : schéma MySQL, API REST Express, authenti
 
 Aucune donnée bancaire n’est stockée. Le paiement est une simulation : seule une référence de prestataire est conservée.
 
+## Corrections apportées
+
+La grille de l'étape 02 signalait l'absence du diagramme entité-association, du rapport Word, du dictionnaire de données, de bcrypt et des verbes PUT et DELETE. Ces éléments sont maintenant dans le dépôt.
+
+- **Diagramme entité-association** — `docs/diagramme-er.png`.
+- **Rapport Word** — `docs/rapport.docx`, avec le dictionnaire de données et le diagramme. La même matière est dans `docs/rapport.md` et `docs/schema.md`.
+- **bcrypt** — les mots de passe sont hashés à l'inscription (`src/services/authService.js`) et à la modification du profil (`src/services/userService.js`), avec un coût de 10. Le fichier `sql/seed.sql` contient déjà les empreintes des comptes de démonstration. Le mot de passe en clair n'est pas stocké.
+- **PUT et DELETE** — les routes sont dans `src/routes/api.js`. La collection Postman `postman/livres-gourmands.postman_collection.json` a un dossier « PUT et DELETE » : ouvrages, catégories, quantité et lignes du panier, statut d'une commande, validation d'un commentaire et suspension d'un compte.
+- **Totaux** — les montants du panier et des commandes restent en euros. Ils ne sont plus convertis deux fois en centimes.
+
 ## Prérequis
 
 - Node.js 20 ou plus récent
